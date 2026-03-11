@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AntAtlas.Domain", "src\AntAtlas.Domain\AntAtlas.Domain.csproj", "{0E0919C0-5B2E-448A-84F4-6EEBECF759E5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AntAtlas.Domain.Tests", "tests\AntAtlas.Domain.Tests\AntAtlas.Domain.Tests.csproj", "{6E252E99-0E61-4A48-8396-31797F6168C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{0E0919C0-5B2E-448A-84F4-6EEBECF759E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E0919C0-5B2E-448A-84F4-6EEBECF759E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E0919C0-5B2E-448A-84F4-6EEBECF759E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E252E99-0E61-4A48-8396-31797F6168C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E252E99-0E61-4A48-8396-31797F6168C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E252E99-0E61-4A48-8396-31797F6168C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E252E99-0E61-4A48-8396-31797F6168C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
