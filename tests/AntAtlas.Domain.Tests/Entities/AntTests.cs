@@ -17,4 +17,19 @@ public class AntTests
 
         Assert.Throws<AntIsDeadException>(() => ant.MoveTo(destination, energyCost));
     }
+
+    [Fact]
+    public void MoveTo_WhenAntHasEnergy_ShouldDecreaseEnergyAndChangePosition()
+    {
+        var startPosition = new Coordinate(0, 0);
+        var destination = new Coordinate(1, 1);
+        var ant = new Ant(startPosition, 10);
+
+        var energyCost = 1;
+        ant.MoveTo(destination, energyCost);
+
+        Assert.Equal(9, ant.Energy);
+        Assert.Equal(destination, ant.Position);
+    }
+
 }
