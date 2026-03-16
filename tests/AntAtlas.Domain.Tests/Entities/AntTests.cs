@@ -7,14 +7,19 @@ namespace AntAtlas.Domain.Tests.Entities;
 
 public class AntTests
 {
+    private Ant CreateAnt(int energy = 10, Coordinate? position = null)
+    {
+        var startPosition = position ?? new Coordinate(0, 0);
+
+        return new Ant(startPosition, energy);
+    }
+
     [Fact]
     public void MoveTo_WhenAntIsDead_ShouldThrowAntIsDeadException()
     {
-        var startPosition = new Coordinate(0, 0);
-        var ant = new Ant(startPosition, 0);
-
+        var ant = CreateAnt(energy: 0);
         var destination = new Coordinate(1, 1);
-        var energyCost = 1;
+        const int energyCost = 1;
 
         Assert.Throws<AntIsDeadException>(() => ant.MoveTo(destination, energyCost));
     }
@@ -22,11 +27,10 @@ public class AntTests
     [Fact]
     public void MoveTo_WhenAntHasEnergy_ShouldDecreaseEnergyAndChangePosition()
     {
-        var startPosition = new Coordinate(0, 0);
+        var ant = CreateAnt(energy: 10);
         var destination = new Coordinate(1, 1);
-        var ant = new Ant(startPosition, 10);
+        const int energyCost = 1;
 
-        var energyCost = 1;
         ant.MoveTo(destination, energyCost);
 
         Assert.Equal(9, ant.Energy);
@@ -36,11 +40,10 @@ public class AntTests
     [Fact]
     public void MoveTo_WhenAntEnergyReachesZero_ShouldEmitAntDiedEvent()
     {
-        var startPosition = new Coordinate(0, 0);
         var destination = new Coordinate(1, 1);
-        var ant = new Ant(startPosition, 1);
-
+        var ant = CreateAnt(energy: 1);
         var energyCost = 1;
+
         ant.MoveTo(destination, energyCost);
 
         Assert.NotEmpty(ant.DomainEvents);
