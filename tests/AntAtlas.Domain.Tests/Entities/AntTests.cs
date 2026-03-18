@@ -17,9 +17,11 @@ public class AntTests
     [Fact]
     public void MoveTo_WhenAntIsDead_ShouldThrowAntIsDeadException()
     {
-        var ant = CreateAnt(energy: 0);
+        var ant = CreateAnt(energy: 1);
         var destination = new Coordinate(1, 1);
         const int energyCost = 1;
+
+        ant.MoveTo(destination, energyCost);
 
         Assert.Throws<AntIsDeadException>(() => ant.MoveTo(destination, energyCost));
     }
@@ -48,5 +50,13 @@ public class AntTests
 
         Assert.NotEmpty(ant.DomainEvents);
         Assert.Single(ant.DomainEvents, new AntDied(ant.Id));
+    }
+
+    [Theory]
+    [InlineData(0)]
+    [InlineData(-10)]
+    public void AntEnergy_WhenIsCreatedWithNegativeNumber_ShouldThrowException(int energy)
+    {
+        Assert.Throws<InvalidOperationException>(() => CreateAnt(energy));
     }
 }
