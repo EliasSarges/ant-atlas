@@ -12,6 +12,11 @@ public class Ant : Entity
 
     public Ant(Coordinate position, int energy)
     {
+        if (energy <= 0)
+        {
+            throw new InvalidOperationException("energy can not be negative or zero");
+        }
+
         Position = position;
         Energy = energy;
     }
