@@ -3,7 +3,7 @@ using AntAtlas.Domain.Events;
 using AntAtlas.Domain.Events.Handlers;
 using AntAtlas.Domain.ValueObjects;
 
-namespace AntAtlas.Domain.Tests.IntegrationTests;
+namespace AntAtlas.Domain.Tests.Integration;
 
 public class AntDeathEventIntegrationTest
 {
