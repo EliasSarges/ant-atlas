@@ -7,8 +7,6 @@ public class SensoryService
 {
     private int FieldOfVision => 1;
 
-    public record AntPerception(List<Coordinate> FoodLocations, List<Coordinate> FreeTiles);
-
     public AntPerception LookAround(Grid grid, Ant ant)
     {
         var currentPosition = ant.Position;
@@ -46,6 +44,8 @@ public class SensoryService
         return new AntPerception(foodLocations, freeTiles);
     }
 }
+
+public record AntPerception(List<Coordinate> FoodLocations, List<Coordinate> FreeTiles);
 
 enum Directions
 {
